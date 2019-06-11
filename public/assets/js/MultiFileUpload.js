@@ -7,7 +7,7 @@ jQuery(function($){
 	}
 
     $('.file-upload-previews').on('click','#removeAdImg', function(e) {
-        // Keep ads item click from being executed.
+        // Keep  item click from being executed.
         e.stopPropagation();
         // Prevent navigating to '#'.
         e.preventDefault();
