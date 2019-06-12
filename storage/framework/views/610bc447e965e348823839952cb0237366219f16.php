@@ -15,14 +15,25 @@
     			  <li class="active"><?php echo $__env->yieldContent('page_name'); ?></li>
     			</ol>
     		</div>
-    		</div>
+    		</div> 
     		<div class="col-md-9" style="padding-left:70px;">
     			<div class="shop-menu pull-righ">
     			    <ul class="nav navbar-nav">
     			    	<?php $__currentLoopData = $sidenavs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sidenav): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     			        	<?php echo $sidenav; ?>
 
-    			        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+						<li>
+							<a href="<?php echo e(route('logout')); ?>"  onclick="event.preventDefault();
+								document.getElementById('logout-form').submit();">
+								<i class="fa fa-unlock"></i> 
+								Logout
+							</a>
+							<form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+								<?php echo e(csrf_field()); ?>
+
+							</form>
+						</li>
     			    </ul>
     			</div>
     		</div>
