@@ -2,7 +2,7 @@
     <div id="page-content">
         <div class="container">
             <ol class="breadcrumb">
-                <li><a href="{LINK_INDEX}">HOME</a></li>
+                <li><a href="/">HOME</a></li>
                 <li class="active">Login</li>
             </ol>
             <!--end breadcrumb-->
@@ -13,22 +13,16 @@
                         
 
                         <div id="post-form" style="padding:10px">
-                            <?php if($errors->any()): ?>
-                                <article class="byMsg byMsgError" style="margin-bottom: 40px;" id="formErrors">
-                                    ! <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <?php echo e($error); ?> 
-                                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </article>
-                            <?php endif; ?>
+                            <?php echo $__env->make('frontend._pertial.flash', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                             <form method="post" action="/login">
-                                <div class="input-field">
+                                <div class="form-group input-field">
                                     <label for="email">Email</label>
-                                    <input type="text" name="email" id="email">
+                                    <input type="text" name="email" id="email" class="form-control">
                                 </div>
                                 <!--end form-group-->
-                                <div class="input-field">
+                                <div class="form-group input-field">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" id="password">
+                                    <input type="password" name="password" id="password" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <?php echo e(csrf_field()); ?>
@@ -36,7 +30,7 @@
                                     <button type="submit"  id="submit" class="btn btn-primary waves-effect">
                                         LOGIN
                                     </button>&nbsp;&nbsp;
-                                    <a href="<?php echo e(route('password.request')); ?>" class="forgotlink">Forgot Password?</a>
+                                    
                                 </div>
                                 <!--end form-group-->
                             </form>

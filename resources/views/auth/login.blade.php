@@ -3,7 +3,7 @@
     <div id="page-content">
         <div class="container">
             <ol class="breadcrumb">
-                <li><a href="{LINK_INDEX}">HOME</a></li>
+                <li><a href="/">HOME</a></li>
                 <li class="active">Login</li>
             </ol>
             <!--end breadcrumb-->
@@ -20,29 +20,23 @@
                         </div>--}}
 
                         <div id="post-form" style="padding:10px">
-                            @if($errors->any())
-                                <article class="byMsg byMsgError" style="margin-bottom: 40px;" id="formErrors">
-                                    ! @foreach($errors->all() as $error)
-                                        {{$error}} 
-                                      @endforeach
-                                </article>
-                            @endif
+                            @include('frontend._pertial.flash')
                             <form method="post" action="/login">
-                                <div class="input-field">
+                                <div class="form-group input-field">
                                     <label for="email">Email</label>
-                                    <input type="text" name="email" id="email">
+                                    <input type="text" name="email" id="email" class="form-control">
                                 </div>
                                 <!--end form-group-->
-                                <div class="input-field">
+                                <div class="form-group input-field">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" id="password">
+                                    <input type="password" name="password" id="password" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     {{csrf_field()}}
                                     <button type="submit"  id="submit" class="btn btn-primary waves-effect">
                                         LOGIN
                                     </button>&nbsp;&nbsp;
-                                    <a href="{{ route('password.request') }}" class="forgotlink">Forgot Password?</a>
+                                    {{-- <a href="{{ route('password.request') }}" class="forgotlink">Forgot Password?</a> --}}
                                 </div>
                                 <!--end form-group-->
                             </form>

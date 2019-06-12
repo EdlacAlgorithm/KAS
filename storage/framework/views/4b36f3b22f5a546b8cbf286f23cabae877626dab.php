@@ -20,6 +20,17 @@
                                 <?php echo $sidenav; ?>
 
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <li>
+                                <a href="<?php echo e(route('logout')); ?>"  onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-unlock"></i> 
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                    <?php echo e(csrf_field()); ?>
+
+                                </form>
+                            </li>
                         </ul>
                     </div>
                 </div>
