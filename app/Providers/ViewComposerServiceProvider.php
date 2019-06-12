@@ -20,8 +20,8 @@ class ViewComposerServiceProvider extends ServiceProvider
     ];
 
     private $testimonial = [
-        'frontend._pertial.testimonials',
-        'backend.testimonial.list'
+        'frontend._pertial.testimonials'
+        //'backend.testimonial.list'
     ];
     
     /**
@@ -53,7 +53,7 @@ class ViewComposerServiceProvider extends ServiceProvider
            $view->with('testimonials',Testimonial::all());
         });
 
-        View::composer('backend.index', 'App\Http\Composers\SideNavComposer');
+        View::composer(['backend.index','backend.dashboard'], 'App\Http\Composers\SideNavComposer');
     }
 
     /**

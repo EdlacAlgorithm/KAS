@@ -17,7 +17,7 @@ class CreateTestimonialsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('profile');
-            $table->string('avater');
+            $table->string('avater')->nullable();
             $table->timestamps();
         });
     }

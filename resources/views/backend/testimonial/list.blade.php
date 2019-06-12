@@ -18,8 +18,10 @@
 		<tr>
 			<td class="cart_product">
 				<a href="#">
-					<img src="{{asset('assets/images/home/small_product'.rand(1,6).'.jpg')}}" 
-						 alt="{{$testimonial->name}}" class="img-circle">
+					 @php
+						$avater = $testimonial->avater?'testimonials/similar_'.$testimonial->avater:'no_image.jpg';
+					 @endphp
+				 	<img src="{{asset('assets/images/'.$avater)}}" alt="{{$testimonial->name}}" width="85px">
 				</a>
 			</td>
 			<td class="cart_description">
@@ -80,5 +82,8 @@
 	@endcomponent
 @endsection
 @section('page_script')
+	<script>
+		const $realUrl = "{{route('testimonial.store')}}"
+	</script>
 	<script src="{{asset('assets/js/testimonial.modal.js')}}"></script>
 @endsection

@@ -12,7 +12,7 @@
 	    			<div class="contact-form">
 						@include('frontend._pertial.flash')
 						<a href="/product" class="btn btn-primary pull-right" style="margin-bottom:10px">
-							<i class="fa fa-angle-double-left"></i> <Back
+							<i class="fa fa-angle-double-left"></i> 
 						</a>
 				    	<form id="main-contact-form" class="contact-form row" 
                              method="post" action="/product/{{$product->unique_id}}" 
@@ -48,11 +48,14 @@
                                             data-img-name="{{$product->image}}">x</a> 
                                         <span>
                                             <span class="MultiFile-label" 
-                                                title="File selected: {{$product->image}}.jpg">
-                                                <span class="MultiFile-title">{{$product->image}}.jpg</span>
+                                                title="File selected: {{$product->image}}">
+												<span class="MultiFile-title">{{$product->image}}</span>
+												@php
+													$image = $product->image?'products/list_'.$product->image:'no_image.jpg';
+												@endphp
                                                 <img class="MultiFile-preview" 
-                                                        style="max-height:100px;product max-width:100px;" 
-                                                        src="{{asset('assets/images/product/list_'.$product->image.'.jpg')}}">
+                                                    style="max-height:100px;product max-width:100px;" 
+                                                    src="{{asset('assets/images/'.$image)}}">
                                             </span>
                                         </span>
                                         <input type="hidden" name="previousImage" value="{{$product->image}}" />

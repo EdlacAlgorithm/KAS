@@ -53,7 +53,7 @@ $factory->define(App\Model\Shisha::class, function (Faker\Generator $faker){
 		'status'=>1,
 		'description'=>$faker->sentence,
 		//'gallery'=>$faker->randomElements($gallery,$faker->randomElement([3,6])),
-		'image'=>$faker->randomElement($gallery),
+		//'image'=>$faker->randomElement($gallery),
 		'category_id'=>function(){
 			return factory(App\Model\Category::class)->create()->id; 
 		},
@@ -74,7 +74,7 @@ $factory->define(App\Model\Slider::class, function (Faker\Generator $faker){
 		'title'=>$faker->sentence(2),
 		'sub_title'=>$faker->bs,
 		'status'=>1,
-		'image'=>$faker->randomElement($gallery),
+		//'image'=>$faker->randomElement($gallery),
 		'description'=>$faker->sentence,
 	];
 });
@@ -88,7 +88,7 @@ $factory->define(App\Model\Testimonial::class, function (Faker\Generator $faker)
 
 	return [
 		'name'=>$faker->name(2),
-		'avater'=>$faker->randomElement($gallery),
+		//'avater'=>$faker->randomElement($gallery),
 		'profile'=>$faker->bs,
 	];
 });

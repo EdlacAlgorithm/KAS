@@ -11,7 +11,12 @@ class TestimonialController extends Controller
 {	
 	public function index()
 	{	
-		return view('backend.testimonial.list');
+		$testimonials = Testimonial::latest()->get();
+
+		return view(
+			'backend.testimonial.list',
+			compact('testimonials')
+		);
 	}
 
 	public function store(Request $request,ImageHelper $imageHelper)
@@ -24,12 +29,14 @@ class TestimonialController extends Controller
 		$toSave = $request->except(['previousImage','image']);
 
 		$toSave['avater'] = $imageHelper->uploadImageWith(
-			$request->file('image'),$request->name,'testimonial'
+			$request->file('image'),$request->name,'testimonials'
 		);
 
 		Testimonial::create($toSave);
 
-		return redirect('/testimonial')->with(['flash'=>'Testimonial successfully created']);
+		return redirect(route('testimonial.index'))->with(
+			['flash'=>'Testimonial successfully created']
+		);
 	}
 
 	public function update(Testimonial $testimonial,Request $request,ImageHelper $imageHelper)
@@ -44,21 +51,23 @@ class TestimonialController extends Controller
 
 		if(!$request->has('previousImage'))
 		{	
-			$imageHelper->removeImageWith($testimonial->avater,'testimonial');
+			$imageHelper->removeImageWith($testimonial->avater,'testimonials');
 
 			$toUpdate['avater'] = $imageHelper->uploadImageWith(
-				$request->file('image'),$request->name,'testimonial'
+				$request->file('image'),$request->name,'testimonials'
 			);
 		}
 
 		$testimonial->fill($toUpdate)->save();
 
-		return redirect('/testimonial')->with(['flash'=>'Testimonial is successfully updated']);
+		return redirect(route('testimonial.index'))->with(
+			['flash'=>'Testimonial is successfully updated']
+		);
 	}
 
 	public function destroy(Testimonial $testimonial,ImageHelper $imageHelper)
 	{	
-		$imageHelper->removeImageWith($testimonial->avater,'testimonial');
+		$imageHelper->removeImageWith($testimonial->avater,'testimonials');
 
 		if($testimonial->delete())
 		{	

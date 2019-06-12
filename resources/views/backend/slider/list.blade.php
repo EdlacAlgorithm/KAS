@@ -20,8 +20,10 @@
 		<tr>
 			<td class="cart_product">
 				<a href="#">
-					<img src="{{asset('assets/images/home/small_product'.rand(1,6).'.jpg')}}" 
-						alt="{{$slider->title}}">
+					@php
+						$image = $slider->image?'sliders/slide_'.$slider->image:'no_image.jpg';
+					 @endphp
+				 	<img src="{{asset('assets/images/'.$image)}}" alt="{{$slider->title}}" width="85px">
 				</a>
 			</td>
 			<td class="cart_description">
@@ -86,6 +88,9 @@
 	@endcomponent
 @endsection
 @section('page_script')
+	<script>
+		const $realUrl = "{{route('slider.store')}}"
+	</script>
 	<script type='text/javascript' src='{{asset("assets/js/bootstrap-switch.js")}}'></script>
 	<script type="text/javascript" src="{{asset('assets/js/slider_switching.js')}}"></script>
 	<script src="{{asset('assets/js/slider.modal.js')}}"></script>

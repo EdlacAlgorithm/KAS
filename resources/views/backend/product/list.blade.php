@@ -15,8 +15,10 @@
 		<tr>
 			<td class="cart_product">
 				<a href="#">
-					<img src="{{asset('assets/images/home/small_'.$product->image.'.jpg')}}" 
-						alt="{{$product->name}}">
+					@php
+						$image = $product->image?'products/similar_'.$product->image:'no_image.jpg';
+					@endphp
+					<img src="{{asset('assets/images/'.$image)}}" alt="{{$product->name}}" width="85px">
 				</a>
 			</td>
 			<td class="cart_description">

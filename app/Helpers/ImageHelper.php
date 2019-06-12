@@ -5,7 +5,7 @@ use Intervention\Image\Facades\Image;
 
 Class ImageHelper
 {
-	public $filePath = 'assets/images/product/';
+	public $filePath = 'assets/images/products/';
 
     public $transparent = true;
 
@@ -18,6 +18,8 @@ Class ImageHelper
     {       
         $hardPath =  str_slug($name, '-').'-'.md5(time());
         
+        $hardPath .= '.jpg';
+
         $img = Image::make($file);
 
         foreach($imageSizes as $imageSize)
@@ -26,7 +28,7 @@ Class ImageHelper
 
             //$img = $this->transparent?$img->opacity(0):$img;
 
-            $img->save($this->filePath.$imageSize[2].$hardPath.'.jpg');
+            $img->save($this->filePath.$imageSize[2].$hardPath);
         }
 
         return $hardPath;
@@ -38,7 +40,7 @@ Class ImageHelper
         {    
             foreach($imageSizes as $imageSize)
             {
-                \File::delete(public_path() .'/'.$this->filePath.$imageSize.$name.'.jpg');
+                \File::delete(public_path() .'/'.$this->filePath.$imageSize.$name);
             }
         }
 

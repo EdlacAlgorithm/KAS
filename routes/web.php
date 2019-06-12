@@ -33,16 +33,17 @@ Route::get('test/{item?}',function($item=0,Request $request,Faker\Generator $fak
 
 Route::auth();
 
-Route::get('/home',function(){ return redirect('/');});
+Route::get('/home',function(){ return redirect('/dashboard');});
 
 Route::group(['namespace'=>'Frontend'],function(){
 	Route::get('/','HomeController@index');
 	Route::get('product/listing','ListingController@index');
     Route::get('product/detail/{shisha}','HomeController@show');
 });
-Route::group(['namespace'=>'Backend','middleware'=>['guest']],function(){
+Route::group(['namespace'=>'Backend','middleware'=>['auth']],function(){
 	//Route::delete('/shisha/{shisha}',function(Shisha $shisha){return $shisha; exit;});
 	//Route::delete('/product/{shisha}',function(Shisha $shisha){return '$shisha'; exit;});
+	Route::get('/dashboard','DashboardController@index');
 	Route::post('/slider/toggle/{slider}','SliderController@onOff');
     Route::resource('/product','ProductController');
     Route::resource('/category','CategoryController');

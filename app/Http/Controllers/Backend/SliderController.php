@@ -27,7 +27,7 @@ class SliderController extends Controller
 
 		$toSave['image'] = $imageHelper->uploadImageWith(
 			$request->file('image'),$request->title,
-			'slider',[[484,441,'slide_']]
+			'sliders',[[484,441,'slide_']]
 		); 
 
 		$toSave['status'] = 1;
@@ -51,11 +51,11 @@ class SliderController extends Controller
 
 		if(!$request->has('previousImage'))
 		{	
-			$imageHelper->removeImageWith($slider->image,'slider');
+			$imageHelper->removeImageWith($slider->image,'sliders');
 
 			$toUpdate['image'] = $imageHelper->uploadImageWith(
 				$request->file('image'),$request->title,
-				'slider',[[484,441,'slide_']]
+				'sliders',[[484,441,'slide_']]
 			);
 		}
 
@@ -68,7 +68,7 @@ class SliderController extends Controller
 
 	public function destroy(Slider $slider,ImageHelper $imageHelper)
 	{	
-		$imageHelper->removeImageWith($slider->image,'slider');
+		$imageHelper->removeImageWith($slider->image,'sliders');
 
 		if($slider->delete())
 		{	
