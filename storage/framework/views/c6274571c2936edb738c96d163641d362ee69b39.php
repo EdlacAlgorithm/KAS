@@ -9,7 +9,6 @@
 					<div class="left-sidebar">						
 						<?php echo $__env->make('frontend._pertial.category', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>						
 						<div class="shipping text-center"><!--shipping-->
-							
 							<img src="<?php echo e(asset('assets/images/kas/clear2.png')); ?>" alt="" />
 						</div><!--/shipping-->
 						<?php if(!strpos(request()->url(),'product/detail')): ?>
