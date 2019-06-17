@@ -2,9 +2,6 @@
 
 namespace App\Providers;
 
-use App\Slot;
-use App\Nominee;
-use App\Position;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Schema;
