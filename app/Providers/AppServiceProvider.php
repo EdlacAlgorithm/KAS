@@ -2,9 +2,13 @@
 
 namespace App\Providers;
 
+use App\Slot;
+use App\Nominee;
+use App\Position;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use View;
-use Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,12 +19,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \Schema::defaultStringLength(191);
+        Schema::defaultStringLength(191);
 
-        Validator::extend('phone', function ($attribute, $value, $parameters, $validator){
-
-            return preg_match('/^[0-9]{11}$/', $value) || preg_match('/^\+234[0-9]{10}$/',$value);
-        });
+        if (App::environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 
     /**
