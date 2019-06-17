@@ -53,7 +53,10 @@ class ViewComposerServiceProvider extends ServiceProvider
            $view->with('testimonials',Testimonial::all());
         });
 
-        View::composer('backend.index', 'App\Http\Composers\SideNavComposer');
+        View::composer(
+            ['backend.index','backend.dashboard'], 
+            'App\Http\Composers\SideNavComposer'
+        );
     }
 
     /**

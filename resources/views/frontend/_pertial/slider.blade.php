@@ -21,10 +21,11 @@
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="{{asset('assets/images/home/'.$slider->image.'.jpg')}}" 
-										class="girl img-responsive" alt="" />
-									{{--<img src="{{asset('assets/images/home/pricing.png')}}"  
-											class="pricing" alt="" />--}}
+									@php
+										$image = $slider->image?'sliders/slide_'.$slider->image:'no_image.jpg';
+									@endphp
+									<img src="{{asset('assets/images/'.$image)}}" alt="{{$slider->name}}" width=""
+										class="girl img-responsive">
 								</div>
 							</div>
 						@endforeach						

@@ -10,8 +10,15 @@ class DBSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        factory('App\Model\User',2)->create();
+    {   
+        Storage::disk('assets')->delete(Storage::disk('assets')->files('images/products'));
+        Storage::disk('assets')->delete(Storage::disk('assets')->files('images/sliders'));
+        Storage::disk('assets')->delete(Storage::disk('assets')->files('images/testimonials'));
+        
+        factory('App\Model\User')->create([
+            'email'=>'admin@mail.com'
+        ]);
+        
         factory('App\Model\Slider',5)->create();
         factory('App\Model\Testimonial',12)->create();
         $categories = factory('App\Model\Category',5)->create();

@@ -33,12 +33,14 @@ class ProductController extends Controller
 		$toSave['category_id'] = $category->getCatId($request->category_id);
 
 		$toSave['image'] = $imageHelper->uploadImageWith(
-			$request->file('image'),$request->name,'product'
+			$request->file('image'),$request->name,'products'
         );
 
 		Shisha::create($toSave);
 
-		return redirect('/product')->with(['flash'=>'Product is successfully created']);
+		return redirect('/product')->with(
+			['flash'=>'Product is successfully created']
+		);
 	}
 
 	public function edit(Shisha $shisha)
@@ -54,10 +56,10 @@ class ProductController extends Controller
 
 		if(!$request->has('previousImage'))
 		{	
-			$imageHelper->removeImageWith($shisha->image,'product');
+			$imageHelper->removeImageWith($shisha->image,'products');
 
 			$toUpdate['image'] = $imageHelper->uploadImageWith(
-				$request->file('image'),$request->name,'product'
+				$request->file('image'),$request->name,'products'
 			);
 		}
 
@@ -68,7 +70,7 @@ class ProductController extends Controller
 
 	public function destroy(Shisha $shisha,ImageHelper $imageHelper)
 	{	
-		$imageHelper->removeImageWith($shisha->image,'product');
+		$imageHelper->removeImageWith($shisha->image,'products');
 
 		if($shisha->delete())
 		{

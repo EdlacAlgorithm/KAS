@@ -13,7 +13,7 @@
                         <div class="video-gallery text-center">
                             <a href="http://howegobe.com">
                                 <div class="iframe-img">
-                                    <img src="{{asset('assets/images/home/partner1.png')}}" alt="" />
+                                    <img src="{{asset('assets/images/kas/partner1.png')}}" alt="" />
                                 </div>
                             </a>
                             <h2>HowEGoBe</h2>
@@ -24,7 +24,7 @@
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="{{asset('assets/images/home/partner2.png')}}" alt="" />
+                                    <img src="{{asset('assets/images/kas/partner2.png')}}" alt="" />
                                 </div>
                             </a>
                             <h2>Amurele</h2>
@@ -35,7 +35,7 @@
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="{{asset('assets/images/home/partner3.png')}}" alt="" />
+                                    <img src="{{asset('assets/images/kas/partner3.png')}}" alt="" />
                                 </div>
                             </a>
                             <h2>EdlacAlgorithm</h2>
@@ -46,7 +46,7 @@
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="{{asset('assets/images/home/partner4.png')}}" alt="" />
+                                    <img src="{{asset('assets/images/kas/partner4.png')}}" alt="" />
                                 </div>
                             </a>
                             <h2>EaglesNetwork</h2>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="address">
-                        <img src="{{asset('assets/images/home/map.png')}}" alt="" />
+                        <img src="{{asset('assets/images/kas/map.png')}}" alt="" />
                         <p>505 Oremeji Victorial Island Ikoyi Lagos</p>
                     </div>
                 </div>

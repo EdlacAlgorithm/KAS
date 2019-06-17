@@ -18,8 +18,10 @@
 		<tr>
 			<td class="cart_product">
 				<a href="#">
-					<img src="{{asset('assets/images/home/small_product'.rand(1,6).'.jpg')}}" 
-						 alt="{{$testimonial->name}}" class="img-circle">
+					@php
+						$avater = $testimonial->avater?'testimonials/similar_'.$testimonial->avater:'no_image.jpg';
+					 @endphp
+				 	<img src="{{asset('assets/images/'.$avater)}}" alt="{{$testimonial->name}}" width="85px">
 				</a>
 			</td>
 			<td class="cart_description">
@@ -69,10 +71,10 @@
 			</div>
 			<div class="file-upload">
 				<input type="file" name="image" 
-				class="file-upload-input with-preview"  
-				title="Click to add files" 
-				maxlength="1" accept="jpg|png" 
-				onchange="checkFile(this)" id="img">
+					class="file-upload-input with-preview"  
+					title="Click to add files" 
+					maxlength="1" accept="jpg|png" 
+					onchange="checkFile(this)" id="img">
 				<span style="color:#000">CLICK OR DRAG IMAGE HERE</span>
 				<input type="hidden" id="imgCount" value="1"/>
 			</div>
@@ -80,5 +82,8 @@
 	@endcomponent
 @endsection
 @section('page_script')
+	<script>
+		const $realUrl = "{{route('testimonial.store')}}"
+	</script>
 	<script src="{{asset('assets/js/testimonial.modal.js')}}"></script>
 @endsection

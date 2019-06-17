@@ -4,6 +4,11 @@ return [
 
 	'nav_bar_items'=>[
 		[
+		  'title'=>'Dashboard',
+		  'url'=>'dashboard',
+		  'icon'=>'fa fa-tachometer',
+		],
+		[
 		  'title'=>'Product',
 		  'url'=>'product',
 		  'icon'=>'fa fa-truck',

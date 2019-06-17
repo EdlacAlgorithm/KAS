@@ -1,6 +1,7 @@
 @extends('backend.app')
 @section('style')
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/select2.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/ckeditor.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/MultiFileUpload.css')}}">
 @endsection
 @section('content_title','Create Product')
@@ -52,7 +53,7 @@
 				            </div>
 				            <div class="form-group col-md-12">
 				                <textarea name="description" id="message" required="required" 
-				                	class="form-control" rows="4" 
+				                	class="form-control ckeditor" rows="4" 
 				                	placeholder="Product description">
 				                </textarea>
 				            </div>                        
@@ -70,7 +71,8 @@
 @endsection
 @section('script')
 	<script type="text/javascript" src="{{asset('assets/js/jQuery.MultiFile.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('assets/js/select2.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('assets/js/select2.min.js')}}"></script> 
+	<script type="text/javascript" src="{{asset('assets/js/ckeditor/ckeditor.js')}}"></script>
 	<script type="text/javascript" src="{{asset('assets/js/select2_init.js')}}"></script>
 	<script type="text/javascript" src="{{asset('assets/js/MultiFileUpload.js')}}"></script>
 @endsection

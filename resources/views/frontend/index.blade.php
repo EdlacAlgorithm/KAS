@@ -10,7 +10,6 @@
 					<div class="left-sidebar">						
 						@include('frontend._pertial.category')						
 						<div class="shipping text-center"><!--shipping-->
-							{{--<img src="{{asset('assets/images/home/shipping.jpg')}}" alt="" />--}}
 							<img src="{{asset('assets/images/kas/clear2.png')}}" alt="" />
 						</div><!--/shipping-->
 						@if(!strpos(request()->url(),'product/detail'))

@@ -63,5 +63,8 @@
 	@endcomponent
 @endsection
 @section('page_script')
+	<script>
+		const $realUrl = "{{route('category.store')}}"
+	</script>
 	<script src="{{asset('assets/js/category.modal.js')}}"></script>
 @endsection

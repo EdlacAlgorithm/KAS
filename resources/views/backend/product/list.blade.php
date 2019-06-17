@@ -15,13 +15,15 @@
 		<tr>
 			<td class="cart_product">
 				<a href="#">
-					<img src="{{asset('assets/images/home/small_'.$product->image.'.jpg')}}" 
-						alt="{{$product->name}}">
+					@php
+						$image = $product->image?'products/similar_'.$product->image:'no_image.jpg';
+					@endphp
+					<img src="{{asset('assets/images/'.$image)}}" alt="{{$product->name}}" width="85px">
 				</a>
 			</td>
 			<td class="cart_description">
 				<h4><a href="#">{{$product->name}}</a></h4>
-				<p>{{$product->subDescription}}</p>
+				<p>{{strip_tags($product->subDescription)}}</p>
 			</td>
 			<td class="cart_price">
 				<p>₦{{$product->price}}</p>
@@ -31,7 +33,7 @@
 					<a class="cart_quantity_up" href="#"> + </a>
 					<input class="cart_quantity_input" type="text" 
 						name="quantity" value="{{$product->view_count}}" 
-						autocomplete="off" size="2">
+						autocomplete="off" size="2" >
 					<a class="cart_quantity_down" href="#"> + </a>
 				</div>
 			</td>

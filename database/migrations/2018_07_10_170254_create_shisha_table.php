@@ -18,12 +18,17 @@ class CreateShishaTable extends Migration
             $table->string('unique_id');
             $table->string('name');
             $table->string('view_count')->default(0);
-            $table->double('price');
-            $table->string('description');
-            $table->string('image');
+            $table->string('price')->nullable();
+            $table->text('description');
+            $table->string('image')->nullable();
             $table->integer('status')->default(0);
             $table->integer('category_id');
             $table->timestamps();
+
+            $table->foreign('category_id')
+                  ->references('id')
+                  ->on('category')
+                  ->onDelete('cascade');
         });
     }
 

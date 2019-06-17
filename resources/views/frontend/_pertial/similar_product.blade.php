@@ -5,8 +5,10 @@
 				<div class="item {{$loop->first?'active':''}}">
 					@foreach($similarChunk as $similar)
 				  		<a href="/product/detail/{{$similar->unique_id}}">
-				  			<img src="{{asset('assets/images/home/small_'.$similar->image.'.jpg')}}" 
-				  				 alt="{{$similar->name}}">
+								@php
+									$image = $similar->image?'products/similar_'.$similar->image:'no_image.jpg';
+								@endphp
+								<img src="{{asset('assets/images/'.$image)}}" alt="{{$similar->name}}" width="">
 				  		</a>
 				  @endforeach
 				</div>

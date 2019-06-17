@@ -5,9 +5,10 @@
 	<div class="product-details"><!--product-details-->
 		<div class="col-sm-5">
 			<div class="view-product">
-				{{--<img src="{{asset('assets/images/product-details/1.jpg')}}" alt="" />--}}
-				<img src="{{asset('assets/images/home/'.$product->image.'.jpg')}}" 
-					 alt="{{$product->name}}" />
+				@php
+					 $detailImage = $product->image?'products/detail_'.$product->image:'no_image.jpg';
+				 @endphp
+				 <img src="{{asset('assets/images/'.$detailImage)}}" alt="{{$product->name}}" width="">
 				<h3>ZOOM</h3>
 			</div>
 			<div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -17,8 +18,10 @@
 							<div class="item {{$loop->first?'active':''}}">
 								@foreach($similarChunk as $similar)
 							  		<a href="/product/{{$similar->unique_id}}">
-							  			<img src="{{asset('assets/images/home/small_'.$similar->image.'.jpg')}}" 
-							  				 alt="{{$similar->name}}">
+							  			@php
+											$similarImage = $product->image?'products/similar_'.$product->image:'no_image.jpg';
+										@endphp
+										<img src="{{asset('assets/images/'.$similarImage)}}" alt="{{$product->name}}" width="85">
 							  		</a>
 							  	@endforeach
 							</div>
@@ -68,7 +71,10 @@
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
-									<img src="{{asset('assets/images/home/'.$similarPro->image.'.jpg')}}" alt="{{$similarPro->name}}" />
+									@php
+										$similarProImage = $product->image?'products/detail_'.$product->image:'no_image.jpg';
+									@endphp
+									<img src="{{asset('assets/images/'.$similarProImage)}}" alt="{{$product->name}}" width="">
 									<h2>₦{{$similarPro->price}}</h2>
 									<p>{{$similarPro->name}}</p>
 									<a  class="btn btn-default add-to-cart whatappbtn"
@@ -89,7 +95,7 @@
 					<ul>
 						<li><a href=""><i class="fa fa-th-large"></i> {{$product->name}}</a></li>
 					</ul>
-					<p>{{$product->description}}</p>
+					<div>{!!$product->description!!}</div>
 					<p><b>Write Your Review</b></p>	
 					<form action="#">
 						<span>

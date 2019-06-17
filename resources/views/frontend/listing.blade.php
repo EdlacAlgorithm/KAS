@@ -17,8 +17,10 @@
 									<div class="single-products">
 										<div class="productinfo text-center">
 											<a href="/product/detail/{{$product->unique_id}}">
-												<img src="{{asset('assets/images/home/'.$product->image.'.jpg')}}" 
-													alt="{{$product->name}}" />
+												@php
+													$image = $product->image?'products/list_'.$product->image:'no_image.jpg';
+												@endphp
+												<img src="{{asset('assets/images/'.$image)}}" alt="{{$product->name}}" width="">
 											</a>
 											<h2>₦{{$product->price}}</h2>
 											<p>{{$product->name}}</p>
