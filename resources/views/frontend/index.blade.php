@@ -1,7 +1,8 @@
 @extends('frontend.app')
 @section('content')
 	@section('slider')
-		@include('frontend._pertial.slider')
+		{{-- @include('frontend._pertial.slider') --}}
+		@include('frontend._pertial.slidersearch')
 	@show
 	<section>
 		<div class="container">
@@ -13,13 +14,13 @@
 							<img src="{{asset('assets/images/kas/clear2.png')}}" alt="" />
 						</div><!--/shipping-->
 						@if(!strpos(request()->url(),'product/detail'))
-							<div class="shipping text-center"><!--shipping-->
+							<div class="shipping text-center "><!--shipping-->
 								<img src="{{asset('assets/images/kas/clear2.png')}}" alt="" />
 							</div>
-							<div class="shipping text-center"><!--shipping-->
+							<div class="shipping text-center "><!--shipping-->
 								<img src="{{asset('assets/images/kas/clear2.png')}}" alt="" />
 							</div>
-							<div class="shipping text-center"><!--shipping-->
+							<div class="shipping text-center "><!--shipping-->
 								<img src="{{asset('assets/images/kas/clear2.png')}}" alt="" />
 							</div>
 						@endif
@@ -36,5 +37,42 @@
 		</div>
 	</section>
 @endsection
+@section('script')
+	<script src="{{ asset('assets/js/jquery.backstretch.js') }}"></script>
+	<script>
+		var header_height = $('#header').height()
 
+		/* parallax header */
+		function parallax(){
+			var scrolled = $(window).scrollTop()
+			$('#header .backstretch img').css('top',''+-(scrolled*0.6)+'px')
+			$('.heading').css('background-position', 'center '+-(scrolled*0.5)+'px')
+		}
+
+
+		/* backstretch slider */
+		 $('.header-slide').backstretch([
+				'{{asset("assets/slide/hookahe1.jpg")}}',
+				'{{asset("assets/slide/hookahe2.jpg")}}',
+				'{{asset("assets/slide/hookahe3.jpg")}}',
+				'{{asset("assets/slide/hookahe5.jpg")}}',  
+			],{
+				fade: 850,
+				duration: 4000
+			 }
+			);
+
+
+		/* navbar */
+		$(window).scroll(function(){
+			parallax();
+			if($(window).scrollTop() > header_height){
+				//$('.navbar').css('border-bottom-color', '#3bafda');
+			}else{
+				//$('.navbar').css('border-bottom-color', '#fff');
+			}
+		});
+	</script>
+	
+@endsection
 

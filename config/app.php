@@ -2,6 +2,13 @@
 
 return [
 
+    'whatsapp_number' => env('WHATSAPP_NUMBER','08108013285'),
+    'call_number' => env('CALL_NUMBER','08108013285'),
+    'email_address' => env('EMAIL_ADDRESS','mailetanetwork@gmail.com'),
+    'facebook' => env('FACEBOOK','https://facebook.com/Daud'),
+    'google_plus' => env('GOOGLE_PLUS','https://google.com/daudonmail'),
+    'twitter' => env('TWITTER','https://twitter.com/Daudont'),
+    'linkedin' => env('LINKEDIN','https://linkedin.com'),
     /*
     |--------------------------------------------------------------------------
     | Application Name

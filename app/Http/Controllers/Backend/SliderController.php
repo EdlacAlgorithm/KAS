@@ -27,7 +27,8 @@ class SliderController extends Controller
 
 		$toSave['image'] = $imageHelper->uploadImageWith(
 			$request->file('image'),$request->title,
-			'sliders',[[484,441,'slide_']]
+			'sliders',[[1600, 1024,'slide_']]
+			//'sliders',[[484,441,'slide_']]
 		); 
 
 		$toSave['status'] = 1;
@@ -55,7 +56,7 @@ class SliderController extends Controller
 
 			$toUpdate['image'] = $imageHelper->uploadImageWith(
 				$request->file('image'),$request->title,
-				'sliders',[[484,441,'slide_']]
+				'sliders',[[1600, 1024,'slide_']]
 			);
 		}
 

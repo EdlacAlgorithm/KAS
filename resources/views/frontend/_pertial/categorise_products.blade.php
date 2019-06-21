@@ -25,10 +25,10 @@
 									<h2>₦{{$product->price}}</h2>
 									<p>{{$product->name}}</p>
 									<a  class="btn btn-default add-to-cart whatappbtn"
-									href="javascript:whatsAppWith('08108012345')">
+										href="javascript:whatsAppWith('{{config('app.whatsapp_number')}}','{{$product->name}}')">
 										<i class="fa fa-whatsapp"></i>WhatsApp
 									</a>
-									<a href="#" class="btn btn-default add-to-cart">
+									<a href="{{config('app.call_number')}}" class="btn btn-default add-to-cart call">
 										<i class="fa fa-phone"></i>Call
 									</a>
 								</div>

@@ -43,10 +43,10 @@
 				<span>
 					<span>₦{{$product->price}}</span>
 					<a class="btn btn-default add-to-cart whatappbtn"
-						href="javascript:whatsAppWith('08108012345')">
+						href="javascript:whatsAppWith({{config('app.whatsapp_number')}})">
 						<i class="fa fa-whatsapp"></i>WhatsApp
 					</a>
-					<a href="#" class="btn btn-default add-to-cart">
+					<a href="{{config('app.call_number')}}" class="btn btn-default add-to-cart call">
 						<i class="fa fa-phone-square"></i>Call
 					</a>
 				</span>
@@ -78,10 +78,10 @@
 									<h2>₦{{$similarPro->price}}</h2>
 									<p>{{$similarPro->name}}</p>
 									<a  class="btn btn-default add-to-cart whatappbtn"
-										href="javascript:whatsAppWith('08108012345')">
+										href="javascript:whatsAppWith({{config('app.whatsapp_number')}})">
 										<i class="fa fa-whatsapp"></i>WhatsApp
 									</a>
-									<a href="#" class="btn btn-default add-to-cart">
+									<a href="tel:{{config('app.call_number')}}" class="btn btn-default add-to-cart">
 										<i class="fa fa-phone"></i>Call
 									</a>
 								</div>

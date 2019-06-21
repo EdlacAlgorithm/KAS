@@ -14,9 +14,11 @@ class ViewComposerServiceProvider extends ServiceProvider
     private $category = [
         'frontend._pertial.category',
         'frontend._pertial.header',
+        'frontend._pertial.slidersearch',
+        'frontend.listing',
         'backend.category.list',
         'backend.product.create',
-        'backend.product.edit'
+        'backend.product.edit',
     ];
 
     private $testimonial = [
