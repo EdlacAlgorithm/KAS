@@ -16,13 +16,23 @@
     			  <li class="active">@yield('page_name')</li>
     			</ol>
     		</div>
-    		</div>
+    		</div> 
     		<div class="col-md-9" style="padding-left:70px;">
     			<div class="shop-menu pull-righ">
     			    <ul class="nav navbar-nav">
     			    	@foreach($sidenavs as $sidenav)
     			        	{!!$sidenav!!}
-    			        @endforeach
+						@endforeach
+						<li>
+							<a href="{{ route('logout') }}"  onclick="event.preventDefault();
+								document.getElementById('logout-form').submit();">
+								<i class="fa fa-unlock"></i> 
+								Logout
+							</a>
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								{{ csrf_field() }}
+							</form>
+						</li>
     			    </ul>
     			</div>
     		</div>

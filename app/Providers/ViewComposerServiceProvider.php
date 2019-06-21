@@ -22,8 +22,8 @@ class ViewComposerServiceProvider extends ServiceProvider
     ];
 
     private $testimonial = [
-        'frontend._pertial.testimonials',
-        'backend.testimonial.list'
+        'frontend._pertial.testimonials'
+        //'backend.testimonial.list'
     ];
     
     /**

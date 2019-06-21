@@ -5,7 +5,6 @@
   	  @endforeach
   </div>  
 @endif --}}
-
 @if(session()->has('success') || session()->has('warning'))
     <div class="alert alert-{{session('warning')?'warning':'success'}} alert-dismissible text-center" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">

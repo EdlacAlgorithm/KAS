@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Session\TokenMismatchException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -43,7 +44,11 @@ class Handler extends ExceptionHandler
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
-    {   //dd($exception);
+    {   
+        if ($exception instanceof TokenMismatchException) {
+            return $this->csrfTokenExpirationHandler($request);
+        }
+        
         return parent::render($request, $exception);
     }
 
@@ -61,5 +66,21 @@ class Handler extends ExceptionHandler
         }
 
         return redirect()->guest(route('login'));
+    }
+
+    protected function csrfTokenExpirationHandler($request)
+    {
+        return redirect()
+            ->back()
+            ->withInput(
+                $request->except(
+                    'password', 
+                    'password_confirmation',
+                    '_token'
+                )
+            )
+            ->withWarning([
+                'error' => 'Your form has expired. Please try again'
+            ]);
     }
 }

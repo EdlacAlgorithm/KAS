@@ -1,5 +1,4 @@
-@extends('frontend.app')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div id="page-content">
         <div class="container">
             <ol class="breadcrumb">
@@ -11,9 +10,10 @@
                 <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
                     <div class="middle-dabba">
                         <h1>Login Here</h1>
+                        
 
                         <div id="post-form" style="padding:10px">
-                             @include('frontend._pertial.flash')
+                            <?php echo $__env->make('frontend._pertial.flash', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                             <form method="post" action="/login">
                                 <div class="form-group input-field">
                                     <label for="email">Email</label>
@@ -25,11 +25,12 @@
                                     <input type="password" name="password" id="password" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    {{csrf_field()}}
+                                    <?php echo e(csrf_field()); ?>
+
                                     <button type="submit"  id="submit" class="btn btn-primary waves-effect">
                                         LOGIN
                                     </button>&nbsp;&nbsp;
-                                    {{-- <a href="{{ route('password.request') }}" class="forgotlink">Forgot Password?</a> --}}
+                                    
                                 </div>
                                 <!--end form-group-->
                             </form>
@@ -41,4 +42,5 @@
         <!--end container-->
     </div>
     <!--end page-content-->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

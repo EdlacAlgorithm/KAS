@@ -13,7 +13,7 @@
 
 Route::auth();
 
-Route::get('/home',function(){ return redirect('/');});
+Route::get('/home',function(){ return redirect('/dashboard');});
 
 Route::group(['namespace'=>'Frontend'],function(){
 	Route::get('/','HomeController@index');
